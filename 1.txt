@@ -1,0 +1,63 @@
+    <!-- <v-row>
+      <v-col cols="12">
+        <v-row
+          :align="center"
+          :justify="justify"
+          class="grey lighten-5"
+          style="height: 300px;"
+        >
+          <v-card
+            v-for="post in apiData"
+            :key="post.OBJECTID"
+            class="ma-3 pa-6"
+            outlined
+            tile
+          >
+            Name: {{ post.MASSNAHME }}<br>
+            Place: {{post.WO}}<br> 
+            <v-btn color="secondary" fab x-small dark>
+            <a :href=post.LINK_KOMPL><v-icon>mdi-television</v-icon></a>
+            </v-btn>
+          </v-card>
+        </v-row>
+      </v-col>
+    </v-row> -->
+
+
+    map
+
+
+    <v-container fluid>
+     <h1>Here Goes the map</h1>
+    <v-item-group>
+      <v-row>
+        <v-col
+          v-for="position in geometry"
+          :key="position.OBJECTID"
+          cols="12"
+          md="4"
+          outlined
+          tile
+        >
+          {{ position.x }}
+        </v-col>
+      </v-row>
+    </v-item-group>
+   
+  </v-container>
+
+
+
+<script>
+import { mapState } from 'vuex';
+export default {
+  name: 'App',
+ 
+  computed:{
+    ...mapState(['geometry']),
+  },
+  mounted(){
+    console.log(this.geometry)
+  }
+}
+</script>
